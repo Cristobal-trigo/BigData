@@ -9,7 +9,6 @@ def Map(nombre_archivo):
                 lista.append((elemento.lower(), 1))
 
     archivo_letra.close()
-    print("separamos cada palabra del archivo, indicando con un numero")
     return lista
 
 def ShuffleSort(lista):
@@ -24,19 +23,27 @@ def ShuffleSort(lista):
         if bandera:
             lista_ordenada.append([palabra[0], [1]])
 
+
     return lista_ordenada
 
 def Reduce(lista):
     for elemento in lista:
         elemento[1] = len(elemento[1])
 
+bandera = True
 nombre_archivo_entrada = input("Ingrese el nombre del archivo con la letras: ")
+lista = Map(nombre_archivo_entrada)
+while bandera:
+    nombre_archivo_entrada = input("Ingrese el nombre del archivo con la letras: ")
+    if nombre_archivo_entrada == "q":
+        bandera = False
+    else:
+        lista.extend(Map(nombre_archivo_entrada))
+
 nombre_archivo_salida = input("Ingrese el nombre del archivo de salida: ")
 
-lista = Map(nombre_archivo_entrada)
-
 lista = ShuffleSort(lista)
-
+print(lista)
 Reduce(lista)
 
 archivo_salida = open(nombre_archivo_salida, "w")
