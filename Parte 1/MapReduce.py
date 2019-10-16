@@ -1,7 +1,6 @@
 def Map(nombre_archivo):
     archivo_letra = open(nombre_archivo)
     lista = []
-
     for linea in archivo_letra:
         if linea != "\n":
             linea = linea.strip().strip(",?").split()
@@ -9,7 +8,6 @@ def Map(nombre_archivo):
                 lista.append((elemento.lower(), 1))
 
     archivo_letra.close()
-    print("separamos cada palabra del archivo, indicando con un numero")
     return lista
 
 def ShuffleSort(lista):
@@ -30,15 +28,21 @@ def Reduce(lista):
     for elemento in lista:
         elemento[1] = len(elemento[1])
 
+print("Se pide el nombre del archivo de entrada, el cual contiene la letra de la canción.")
 nombre_archivo_entrada = input("Ingrese el nombre del archivo con la letras: ")
+print("Luego se pide el nombre del archivo en el cual va a estar el conteo de palabras.")
 nombre_archivo_salida = input("Ingrese el nombre del archivo de salida: ")
 
+print("Se llama a la función Map, pasando como argumento el nombre del archivo de entrada, para al final retornar una lista.")
 lista = Map(nombre_archivo_entrada)
 
+print("Luego se llama la función ShuffleSort, pasando como argumento la lista obtenida anteriormente, retornando la lista cambiada.")
 lista = ShuffleSort(lista)
 
+print("Finalmente se llama la función Reduce, pasando como argumento la lista para así modificar a la misma.")
 Reduce(lista)
 
+print("Finalmente se abre/crea un archivo con el nombre especificado anteriormente para almacenar la cantidad de repeticiones de cada palabra.")
 archivo_salida = open(nombre_archivo_salida, "w")
 
 for palabra in lista:
