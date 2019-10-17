@@ -43,7 +43,7 @@ while bandera:
 nombre_archivo_salida = input("Ingrese el nombre del archivo de salida: ")
 
 lista = ShuffleSort(lista)
-print(lista)
+
 Reduce(lista)
 
 archivo_salida = open(nombre_archivo_salida, "w")

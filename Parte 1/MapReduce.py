@@ -35,12 +35,15 @@ nombre_archivo_salida = input("Ingrese el nombre del archivo de salida: ")
 
 print("Se llama a la función Map, pasando como argumento el nombre del archivo de entrada, para al final retornar una lista.")
 lista = Map(nombre_archivo_entrada)
+print("La función Map retorna esto: \n\n", lista, "\n")
 
 print("Luego se llama la función ShuffleSort, pasando como argumento la lista obtenida anteriormente, retornando la lista cambiada.")
 lista = ShuffleSort(lista)
+print("La función ShuffleSort retorna esto: \n\n", lista, "\n")
 
 print("Finalmente se llama la función Reduce, pasando como argumento la lista para así modificar a la misma.")
 Reduce(lista)
+print("La función Reduce modifica la lista dejandola así: \n\n", lista, "\n")
 
 print("Finalmente se abre/crea un archivo con el nombre especificado anteriormente para almacenar la cantidad de repeticiones de cada palabra.")
 archivo_salida = open(nombre_archivo_salida, "w")
